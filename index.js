@@ -5,6 +5,8 @@ const path = require('path')
 const app = express()
 const multer = require("multer")
 const Image = require("./models/uploadedImage")
+const requestIp = require('request-ip')
+
 
 
 const conn = require('./utils/conn')
@@ -19,6 +21,7 @@ conn.connect()
 app.use(express.urlencoded({
     extended: true
 }))
+app.use(requestIp.mw());
 app.use(express.json())
 app.use(session({
     secret: process.env.SECRET_TEXT,

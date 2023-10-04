@@ -39,7 +39,7 @@ router.post('/time_in',upload.single('image'),auth.authMiddleware, async (req, r
             attendanceStatus
         } = req.body;
         const { filename, path: filePath  } = req.file;
-        const ipAddress = req.ip;
+        const ipAddress = req.clientIp;
 
         console.log(ipAddress)
 
@@ -70,7 +70,7 @@ router.post('/time_out',upload.single('image'),auth.authMiddleware,async (req, r
             path: filePath 
         } = req.file;
         const 
-        ipAddress = req.ip;
+        ipAddress = req.clientIp;
         console.log(ipAddress)
 
      
